@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Reset ─────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: auto; /* Lenis handles smooth scroll */
+  }
+
+  body {
+    @apply bg-ink text-ash font-mono antialiased overflow-x-hidden;
+    cursor: none; /* Custom cursor replaces */
+  }
+
+  /* Hide default cursor on all interactive elements */
+  a, button, [role="button"], input, label, select, textarea {
+    cursor: none !important;
+  }
+}
+
+/* ─── Noise Overlay ─────────────────────────────────────── */
+.noise-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: noise 0.18s steps(8) infinite;
+}
+
+@keyframes noise {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-5%, -5%); }
+  20%  { transform: translate(-10%, 5%); }
+  30%  { transform: translate(5%, -10%); }
+  40%  { transform: translate(-5%, 15%); }
+  50%  { transform: translate(-10%, 5%); }
+  60%  { transform: translate(15%, 0); }
+  70%  { transform: translate(0, 10%); }
+  80%  { transform: translate(-15%, 0); }
+  90%  { transform: translate(10%, 5%); }
+  100% { transform: translate(5%, 0); }
+}
+
+/* ─── Dark Mode Invert ──────────────────────────────────── */
+.invert-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #c8ff00; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #ff3d00; }
+
+/* ─── Image Curtain Reveal ──────────────────────────────── */
+.curtain-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.curtain-wrap .curtain {
+  position: absolute;
+  inset: 0;
+  background: #0a0a0a;
+  transform-origin: left center;
+  z-index: 2;
+}
+
+/* ─── Holographic Glitch Card ───────────────────────────── */
+.holo-card {
+  position: relative;
+  overflow: hidden;
+}
+.holo-card .glitch-r,
+.holo-card .glitch-g,
+.holo-card .glitch-b {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 0.1s;
+}
+.holo-card:hover .glitch-r { opacity: 0.6; filter: url(#redChannel);  transform: translate(4px, -2px); }
+.holo-card:hover .glitch-g { opacity: 0.4; filter: url(#greenChannel); transform: translate(-3px, 3px); }
+.holo-card:hover .glitch-b { opacity: 0.5; filter: url(#blueChannel);  transform: translate(2px, 4px); }
+
+/* ─── Receipt Paper ─────────────────────────────────────── */
+.receipt-paper {
+  font-family: 'Space Mono', monospace;
+  background: #f5f5f0;
+  color: #0a0a0a;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.8);
+}
+.receipt-line {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+/* ─── Magnetic Button ───────────────────────────────────── */
+.magnetic-btn {
+  display: inline-block;
+  position: relative;
+  will-change: transform;
+}
+
+/* ─── Marquee ───────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ─── Scratch Canvas ────────────────────────────────────── */
+.scratch-container {
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  touch-action: none;
+}
+
+/* ─── The Bin (Cart) ────────────────────────────────────── */
+.bin-panel {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 28px,
+    rgba(200,255,0,0.06) 28px,
+    rgba(200,255,0,0.06) 29px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 28px,
+    rgba(200,255,0,0.06) 28px,
+    rgba(200,255,0,0.06) 29px
+  ),
+  #111;
+}
+
+/* ─── Spool Progress ────────────────────────────────────── */
+.spool-svg circle {
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+/* ─── Fit Check ─────────────────────────────────────────── */
+.fitcheck-drop-zone {
+  border: 2px dashed rgba(200,255,0,0.3);
+  transition: border-color 0.2s, background 0.2s;
+}
+.fitcheck-drop-zone.drag-over {
+  border-color: #c8ff00;
+  background: rgba(200,255,0,0.05);
+}
+
+/* ─── One-of-One Badge ──────────────────────────────────── */
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,61,0,0.7); }
+  50%       { box-shadow: 0 0 0 8px rgba(255,61,0,0); }
+}
+.oon-badge {
+  animation: badge-pulse 1.5s ease-in-out infinite;
+}
+
+/* ─── Footer Reveal ─────────────────────────────────────── */
+#site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+#main-content {
+  position: relative;
+  z-index: 1;
+  background: #0a0a0a;
+}
+
+/* ─── SVG Filter Defs (hidden) ──────────────────────────── */
+.svg-filters { position: absolute; width: 0; height: 0; overflow: hidden; }
