@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const SILVER_COLOR = '#c0c0c0';
 const SCRATCH_THRESHOLD = 0.55; // 55% scratched = full reveal
 
 // Product to reveal

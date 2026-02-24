@@ -1,11 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Draggable } from 'gsap/Draggable';
 import { useGSAP } from '@gsap/react';
 
 // Register GSAP plugins (useGSAP must also be registered)
-gsap.registerPlugin(ScrollTrigger, Draggable, useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 // Context
 import { CartProvider } from './context/CartContext';
@@ -28,7 +27,7 @@ import TheBin from './components/cart/TheBin';
 import Hero from './components/Hero';
 import ProductGrid from './components/shop/ProductGrid';
 import ScratchReveal from './components/sections/ScratchReveal';
-import FitCheck from './pages/FitCheck';
+
 
 // Lenis smooth scroll
 import { useLenis } from './hooks/useLenis';
@@ -124,8 +123,7 @@ function AppInner() {
             {/* ── Scratch Reveal ── */}
             <ScratchReveal />
 
-            {/* ── Fit Check Module ── */}
-            <FitCheck />
+
 
             {/* ── Manifesto section ── */}
             <section className="relative w-full py-32 px-4 md:px-8 bg-charcoal overflow-hidden">

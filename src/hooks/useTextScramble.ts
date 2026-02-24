@@ -9,7 +9,6 @@ const FRAME_RATE = 3; // frames per character reveal
  */
 export function useTextScramble<T extends HTMLElement>(finalText: string) {
     const ref = useRef<T>(null);
-    const frameRef = useRef(0);
     const rafRef = useRef<number>(0);
 
     const trigger = useCallback(() => {

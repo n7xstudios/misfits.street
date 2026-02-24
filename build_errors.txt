@@ -1,0 +1,31 @@
+﻿src/App.tsx(4,27): error TS1149: File name 'C:/misfits.street/node_modules/gsap/types/Draggable.d.ts' differs from already included file name 'C:/misfits.street/node_modules/gsap/types/draggable.d.ts' only in casing.
+  The file is in the program because:
+    Referenced via 'draggable.d.ts' from file 'C:/misfits.street/node_modules/gsap/types/index.d.ts'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/App.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/components/DraggableGallery.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/components/sections/FitCheck.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+src/components/DraggableGallery.tsx(1,25): error TS6133: 'useLayoutEffect' is declared but its value is never read.
+src/components/DraggableGallery.tsx(3,27): error TS1149: File name 'C:/misfits.street/node_modules/gsap/types/Draggable.d.ts' differs from already included file name 'C:/misfits.street/node_modules/gsap/types/draggable.d.ts' only in casing.
+  The file is in the program because:
+    Referenced via 'draggable.d.ts' from file 'C:/misfits.street/node_modules/gsap/types/index.d.ts'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/App.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/components/DraggableGallery.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/components/sections/FitCheck.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+src/components/ErrorBoundary.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/Experience.tsx(7,109): error TS2503: Cannot find namespace 'JSX'.
+src/components/Experience.tsx(40,25): error TS2322: Type '{ position: [number, number, number]; rotation: [number, number, number]; scale: [number, number, number]; map: any; opacity: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Mutable<Overwrite<Partial<Overwrite<Mesh<BufferGeometry<NormalBufferAttributes, BufferGeometryEventMap>, Material | Material[], Object3DEventMap>, MathProps<...> & ... 1 more ... & Partial<...>>>, Omit<...>>>, "children" | "ref"> & { ...; } & RefAttributes<...>'.
+  Property 'opacity' does not exist on type 'IntrinsicAttributes & Omit<Mutable<Overwrite<Partial<Overwrite<Mesh<BufferGeometry<NormalBufferAttributes, BufferGeometryEventMap>, Material | Material[], Object3DEventMap>, MathProps<...> & ... 1 more ... & Partial<...>>>, Omit<...>>>, "children" | "ref"> & { ...; } & RefAttributes<...>'.
+src/components/FitCheck3D.tsx(1,35): error TS6133: 'Suspense' is declared but its value is never read.
+src/components/FitCheck3D.tsx(11,103): error TS2503: Cannot find namespace 'JSX'.
+src/components/sections/FitCheck.tsx(3,27): error TS1149: File name 'C:/misfits.street/node_modules/gsap/types/Draggable.d.ts' differs from already included file name 'C:/misfits.street/node_modules/gsap/types/draggable.d.ts' only in casing.
+  The file is in the program because:
+    Referenced via 'draggable.d.ts' from file 'C:/misfits.street/node_modules/gsap/types/index.d.ts'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/App.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/components/DraggableGallery.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+    Imported via 'gsap/Draggable' from file 'C:/misfits.street/src/components/sections/FitCheck.tsx' with packageId 'gsap/types/Draggable.d.ts@3.14.2'
+src/components/sections/ScratchReveal.tsx(3,1): error TS6133: 'ScrollTrigger' is declared but its value is never read.
+src/components/sections/ScratchReveal.tsx(5,7): error TS6133: 'SILVER_COLOR' is declared but its value is never read.
+src/components/ui/LiquidWipe.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/context/CartContext.tsx(1,67): error TS1484: 'ReactNode' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/hooks/useTextScramble.ts(12,11): error TS6133: 'frameRef' is declared but its value is never read.
+src/hooks/useVelocitySkew.ts(3,1): error TS6133: 'ScrollTrigger' is declared but its value is never read.
