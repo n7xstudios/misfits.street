@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => (
     <footer id="site-footer" className="w-full bg-ink border-t border-ash/10 py-12 px-4 md:px-8">
@@ -16,34 +17,47 @@ const Footer: React.FC = () => (
                     </p>
                 </div>
 
-                {/* Links */}
-                {[
-                    { title: 'SHOP', links: ['Archive', 'New Drops', 'Jackets', 'Tees', 'Pants', 'Hats'] },
-                    { title: 'INFO', links: ['About', 'Sizing', 'Condition Guide', 'Shipping', 'Returns (lol)'] },
-                    { title: 'CONNECT', links: ['Instagram', 'TikTok', 'Discord', 'Newsletter'] },
-                ].map(col => (
-                    <div key={col.title}>
-                        <h4 className="font-mono text-[9px] text-acid uppercase tracking-[0.3em] mb-4">{col.title}</h4>
-                        <ul className="space-y-2">
-                            {col.links.map(link => (
-                                <li key={link}>
-                                    <a href="#" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">
-                                        {link}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
+                {/* Shop Links */}
+                <div>
+                    <h4 className="font-mono text-[9px] text-acid uppercase tracking-[0.3em] mb-4">SHOP</h4>
+                    <ul className="space-y-2">
+                        <li><Link to="/shop" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">All Items</Link></li>
+                        <li><Link to="/shop" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">New Drops</Link></li>
+                        <li><Link to="/shop" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Jackets</Link></li>
+                        <li><Link to="/shop" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Tees</Link></li>
+                        <li><Link to="/shop" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Pants</Link></li>
+                    </ul>
+                </div>
+
+                {/* Info */}
+                <div>
+                    <h4 className="font-mono text-[9px] text-acid uppercase tracking-[0.3em] mb-4">INFO</h4>
+                    <ul className="space-y-2">
+                        <li><Link to="/about" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">About</Link></li>
+                        <li><a href="#" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Sizing</a></li>
+                        <li><a href="#" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Shipping</a></li>
+                        <li><a href="#" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Returns (lol)</a></li>
+                    </ul>
+                </div>
+
+                {/* Connect */}
+                <div>
+                    <h4 className="font-mono text-[9px] text-acid uppercase tracking-[0.3em] mb-4">CONNECT</h4>
+                    <ul className="space-y-2">
+                        <li><a href="#" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Instagram</a></li>
+                        <li><a href="#" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">TikTok</a></li>
+                        <li><a href="#" className="font-mono text-[10px] text-silver/40 hover:text-ash uppercase tracking-wider transition-colors duration-200">Discord</a></li>
+                    </ul>
+                </div>
             </div>
 
             {/* Bottom bar */}
             <div className="border-t border-ash/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="font-mono text-[9px] text-silver/20 uppercase tracking-widest">
-                    © 2026 MISFITS STREET // DIGITAL BRUTALISM // ALL RIGHTS RESERVED
+                    © 2026 MISFITS STREET // ALL RIGHTS RESERVED
                 </p>
                 <div className="flex gap-6">
-                    {['PRIVACY', 'TERMS', 'COOKIES'].map(item => (
+                    {['PRIVACY', 'TERMS'].map(item => (
                         <a key={item} href="#" className="font-mono text-[9px] text-silver/20 hover:text-acid uppercase tracking-widest transition-colors">
                             {item}
                         </a>

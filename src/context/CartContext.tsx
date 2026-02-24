@@ -15,6 +15,8 @@ interface CartContextValue {
     toggleCart: () => void;
     openCart: () => void;
     closeCart: () => void;
+    clearCart: () => void;
+    itemCount: number;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -34,12 +36,13 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setItems(prev => prev.filter(i => i.id !== id));
     }, []);
 
+    const clearCart = useCallback(() => setItems([]), []);
     const toggleCart = useCallback(() => setIsOpen(p => !p), []);
     const openCart = useCallback(() => setIsOpen(true), []);
     const closeCart = useCallback(() => setIsOpen(false), []);
 
     return (
-        <CartContext.Provider value={{ items, isOpen, addItem, removeItem, toggleCart, openCart, closeCart }}>
+        <CartContext.Provider value={{ items, isOpen, addItem, removeItem, toggleCart, openCart, closeCart, clearCart, itemCount: items.length }}>
             {children}
         </CartContext.Provider>
     );
