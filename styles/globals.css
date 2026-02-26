@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Reset ─────────────────────────────────────── */
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-ink text-ash font-mono antialiased overflow-x-hidden;
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input,
+  label,
+  select,
+  textarea {
+    cursor: none !important;
+  }
+
+  ::selection {
+    background: #39FF14;
+    color: #000;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ─── Vintage Grain Overlay (always on, animated) ────────── */
+@keyframes grain-shift {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-2%, -3%);
+  }
+
+  20% {
+    transform: translate(3%, 1%);
+  }
+
+  30% {
+    transform: translate(-1%, 4%);
+  }
+
+  40% {
+    transform: translate(4%, -2%);
+  }
+
+  50% {
+    transform: translate(-3%, 2%);
+  }
+
+  60% {
+    transform: translate(2%, -4%);
+  }
+
+  70% {
+    transform: translate(-4%, 3%);
+  }
+
+  80% {
+    transform: translate(1%, -1%);
+  }
+
+  90% {
+    transform: translate(3%, -3%);
+  }
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: -10%;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
+  animation: grain-shift 0.8s steps(6) infinite;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #39FF14;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2bcc10;
+}
+
+/* ─── Reveal Animations ────────────────────────────────── */
+.reveal-up {
+  will-change: transform, opacity;
+}
+
+.line-reveal {
+  overflow: hidden;
+}
+
+.line-reveal span {
+  display: inline-block;
+  will-change: transform;
+}
+
+.char-reveal span {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ─── Image Curtain Reveal ──────────────────────────────── */
+.curtain-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.curtain-wrap .curtain {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform-origin: left center;
+  z-index: 2;
+}
+
+/* ─── Receipt Paper ─────────────────────────────────────── */
+.receipt-paper {
+  font-family: 'Space Mono', monospace;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* ─── Magnetic Button ───────────────────────────────────── */
+.magnetic-btn {
+  display: inline-block;
+  position: relative;
+  will-change: transform;
+}
+
+/* ─── Marquee ───────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ─── Scratch Canvas ────────────────────────────────────── */
+.scratch-container {
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  z: 2;
+  touch-action: none;
+}
+
+/* ─── The Bin (Cart) ────────────────────────────────────── */
+.bin-panel {
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 28px,
+      rgba(57, 255, 20, 0.04) 28px,
+      rgba(57, 255, 20, 0.04) 29px),
+    repeating-linear-gradient(90deg,
+      transparent,
+      transparent 28px,
+      rgba(57, 255, 20, 0.04) 28px,
+      rgba(57, 255, 20, 0.04) 29px),
+    #080808;
+}
+
+/* ─── Spool Progress ────────────────────────────────────── */
+.spool-svg circle {
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+/* ─── Footer Reveal ─────────────────────────────────────── */
+#site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#main-content {
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
+
+/* ─── One-of-One Badge ──────────────────────────────────── */
+@keyframes badge-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.7);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 61, 0, 0);
+  }
+}
+
+.oon-badge {
+  animation: badge-pulse 1.5s ease-in-out infinite;
+}
+
+/* ─── Green Glow (buttons only) ─────────────────────────── */
+.glow-green {
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.25), 0 0 30px rgba(57, 255, 20, 0.08);
+}
+
+.glow-green-hover:hover {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4), 0 0 50px rgba(57, 255, 20, 0.15);
+}
+
+/* ─── Skew on Scroll ────────────────────────────────────── */
+.skew-scroll {
+  will-change: transform;
+}
+
+/* ─── Split Text ────────────────────────────────────────── */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+.split-line>span {
+  display: block;
+  will-change: transform;
+}

@@ -1,0 +1,9 @@
+Misfits Street:
+Supabase Credentials:
+Project Name: MisFits
+Project Password: SanjayMisfits@123
+Project ID: cfduqssnxikbmlhzxinw
+Anon key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmZHVxc3NueGlrYm1saHp4aW53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MTc5NzcsImV4cCI6MjA4NzQ5Mzk3N30.Z_GMPhFtlMEQb4yyHbRRI6UdmOmry_ksDHmmzgiz21g
+
+
+Project URL: https://cfduqssnxikbmlhzxinw.supabase.co
