@@ -1,41 +1,36 @@
-# PLAN-admin-dashboard.md
+# Project Plan: Admin Dashboard Enhancements (PLAN-admin-dashboard)
 
-## Task: Admin Dashboard for Misfits Street (Phase 4)
+## Context Check
+- **Objective:** Upgrade the internal Admin Dashboard (`/admin`) for Misfits Street.
+- **Current State:** A basic layout exists with Overview (Recharts), Inventory \[CRUD\], and Acquisitions (Orders). Visuals are in the brutalist dark-mode theme.
+- **Status:** Awaiting user selection from Brainstorming Phase to determine the exact feature set to implement.
 
-**Context:**
-- **Goal:** Build an Admin Dashboard to manage inventory (products), view orders, and see basic analytics.
-- **Tech Stack:** Next.js 15 App Router, Supabase (Auth + PostgreSQL), Tailwind CSS, Recharts.
-- **Current State:** Phase 1 (Migration), Phase 2 (SEO), and Phase 3 (Supabase Auth via `@supabase/ssr` & Client/Server helpers) are complete. The project has a dark, raw, brutalist "misfit" aesthetic.
+## Task Breakdown (Pending Brainstorm Selection)
 
-## Orchestration Strategy
+### Option A: The "Control Room" (Real-time Intel) 
+*(If Selected)*
+- [ ] Connect Supabase Realtime to track live activity.
+- [ ] Build a live event log (who added to cart, who viewed, checkout status).
+- [ ] Upgrade the Overview charts to auto-update without refresh.
 
-This task requires multiple expertise domains. We will coordinate the following agents:
-1.  **`database-architect`**: Design and implement the Supabase SQL schema for `products`, `orders`, and related tables. Formulate RLS policies.
-2.  **`security-auditor`**: Implement an Admin Auth Guard. The dashboard must strictly verify that the logged-in user has "admin" privileges (e.g., matching a specific email or a role flag in Supabase) before granting access. Protect API routes.
-3.  **`backend-specialist`**: Create Server Actions or API routes for Product CRUD (Create, Read, Update, Delete) and Order Management (viewing, fulfilling). Handle image uploads to Supabase Storage if necessary.
-4.  **`frontend-specialist`**: Build the Admin UI layout, navigation, and pages (Overview, Products, Orders). Integrate `recharts` for the analytics overview. Maintain the established design system (monochrome, brutalist typography).
+### Option B: The "Warehouse" (Inventory Power Tools)
+*(If Selected)*
+- [ ] Implement bulk-edit functionality for modifying multiple products (price, status) at once.
+- [ ] Build a drag-and-drop interface for ordering how products appear on the public `/shop` page.
+- [ ] Advanced image uploading (drag-to-upload multi-image carousels).
 
-## Implementation Phases (After User Approval)
+### Option C: The "Dispatch Center" (Fulfillment Board)
+*(If Selected)*
+- [ ] Migrate the basic "Acquisitions" table to a Kanban-style board (Pending, Packing, Shipped, Delivered).
+- [ ] Implement one-click status updates that auto-trigger email notifications (simulated or via Resend).
+- [ ] Generate print-ready PDF invoices/packing slips for each order directly from the dashboard.
 
-### Group 1: Foundation (Parallel)
--   **`database-architect`**: Define schema (SQL scripts/migrations).
-    -   Table: `products` (id, slug, title, price, image_url, category, size, condition, is_sold, created_at).
-    -   Table: `orders` (id, user_id, status, total_amount, created_at).
-    -   Table: `order_items` (id, order_id, product_id, price_at_purchase).
--   **`security-auditor`**: Implement `requireAdmin` helper in `lib/supabase/server.ts` or a layout wrapper. Verify RLS policies on tables to block public mutation.
+## Socratic Gate (Phase 0)
+- Questions asked to user to narrow down the scope of the "Admin Enhancement".
+- Awaiting confirmation on the primary objective (Data, Inventory Mgmt, or Order Fulfillment) before proceeding to code.
 
-### Group 2: Core (Parallel)
--   **`backend-specialist`**: Implement Next.js Server Actions in `app/admin/actions.ts` for mutating the database.
--   **`frontend-specialist`**: Build `app/admin/layout.tsx` and the core dashboard structure.
-
-### Group 3: Polish (Parallel)
--   **`frontend-specialist`**: Build the specific pages: `app/admin/page.tsx` (Charts), `app/admin/products/page.tsx` (Grid & Forms), `app/admin/orders/page.tsx` (List).
--   **`test-engineer` / `security-auditor`**: Run verification scripts (`security_scan.py`, `lint_runner.py`) and ensure unauthorized access to `/admin` redirects to login.
-
-## Verification Checklist
--   [ ] Admin route (`/admin/*`) is inaccessible to non-admins.
--   [ ] Database schema is deployed to Supabase.
--   [ ] Can add, edit, and delete products from the dashboard.
--   [ ] Can view list of orders.
--   [ ] Analytics chart renders mock or real data without errors.
--   [ ] Core verification scripts pass.
+## Agent Assignments
+- **`project-planner`**: Defining the scope and managing the brainstorm.
+- **`ui-ux-pro-max`**: Designing the specialized admin interfaces.
+- **`backend-specialist`**: Handling Supabase Realtime or Kanban state logic.
+- **`frontend-specialist`**: Building the React/Tailwind UI.

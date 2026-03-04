@@ -1,5 +1,19 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/auth/callback/route": "app/auth/callback/route.js",
+  "/api/shiprocket/create-order/route": "app/api/shiprocket/create-order/route.js",
+  "/api/shiprocket/serviceability/route": "app/api/shiprocket/serviceability/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(user)/account/page": "app/(user)/account/page.js",
+  "/(auth)/signup/page": "app/(auth)/signup/page.js",
   "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
   "/shop/page": "app/shop/page.js",
-  "/about/page": "app/about/page.js"
+  "/policies/no-return/page": "app/policies/no-return/page.js",
+  "/product/[slug]/page": "app/product/[slug]/page.js",
+  "/admin/products/page": "app/admin/products/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/orders/page": "app/admin/orders/page.js"
 }

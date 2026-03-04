@@ -23,10 +23,10 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                         OVERVIEW
                     </Link>
                     <Link href="/admin/products" className="p-3 hover:bg-ash/5 transition-colors text-ash border border-transparent hover:border-ash/10 cursor-pointer">
-                        INVENTORY [CRUD]
+                        THE WAREHOUSE
                     </Link>
                     <Link href="/admin/orders" className="p-3 hover:bg-ash/5 transition-colors text-ash border border-transparent hover:border-ash/10 cursor-pointer">
-                        ACQUISITIONS (ORDERS)
+                        DISPATCH CENTER
                     </Link>
                     <Link href="/shop" target="_blank" className="p-3 mt-auto text-ash/40 hover:text-white transition-colors flex justify-between items-center cursor-pointer">
                         <span>VIEW SITE</span> ↗

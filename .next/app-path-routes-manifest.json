@@ -1,0 +1,19 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/auth/callback/route": "/auth/callback",
+  "/api/shiprocket/create-order/route": "/api/shiprocket/create-order",
+  "/api/shiprocket/serviceability/route": "/api/shiprocket/serviceability",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/(auth)/login/page": "/login",
+  "/(user)/account/page": "/account",
+  "/(auth)/signup/page": "/signup",
+  "/page": "/",
+  "/about/page": "/about",
+  "/shop/page": "/shop",
+  "/policies/no-return/page": "/policies/no-return",
+  "/product/[slug]/page": "/product/[slug]",
+  "/admin/products/page": "/admin/products",
+  "/admin/page": "/admin",
+  "/admin/orders/page": "/admin/orders"
+}
